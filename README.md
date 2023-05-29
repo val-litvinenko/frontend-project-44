@@ -6,3 +6,6 @@
 
 brain-even
 <a href='https://asciinema.org/a/lPts226qSI5m7CzbRiqXqGteP'>
+
+brain-calc
+<a href='https://asciinema.org/a/588246'>
