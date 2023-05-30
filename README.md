@@ -9,3 +9,6 @@ brain-even
 
 brain-calc
 <a href='https://asciinema.org/a/588246'>
+
+brain-gsd
+<a href='https://asciinema.org/a/588396'>
