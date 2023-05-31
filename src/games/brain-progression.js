@@ -27,6 +27,7 @@ const getArrayNum = () => {
 
 const playBrainProgression = () => {
   console.log('What number is missing in the progression?');
+
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const [arrayNum, missingNumber] = getArrayNum();
     const isCorrect = processQuestion(arrayNum, missingNumber);
