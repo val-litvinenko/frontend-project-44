@@ -1,12 +1,13 @@
 import readlineSync from 'readline-sync';
 import {
   getRandomNumber,
-  MIN_PROGRESSION_LENTH,
-  MIN_STEP,
   getWrongAnswer,
   userName,
   SUCCESS_COUNT,
 } from '../index.js';
+
+const MIN_PROGRESSION_LENTH = 5;
+const MIN_STEP = 1;
 
 const playBrainProgression = () => {
   console.log('What number is missing in the progression?');
@@ -28,13 +29,13 @@ const playBrainProgression = () => {
 
     if (answer === missingNumber) {
       console.log('Correct!');
-      if (i === SUCCESS_COUNT) {
-        console.log(`Congratulations, ${userName}!`);
-      }
     } else {
       getWrongAnswer(yourAnswer, `'${missingNumber}'`);
-
       break;
+    }
+
+    if (i === SUCCESS_COUNT) {
+      console.log(`Congratulations, ${userName}!`);
     }
   }
 };

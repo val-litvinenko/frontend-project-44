@@ -2,8 +2,6 @@ import greetingPlayer from './modules/greeting_player.js';
 import getRandomNumber from './modules/get_random_number.js';
 
 const SUCCESS_COUNT = 3;
-const MIN_PROGRESSION_LENTH = 5;
-const MIN_STEP = 1;
 
 const userName = greetingPlayer();
 
@@ -17,6 +15,4 @@ export {
   getRandomNumber,
   getWrongAnswer,
   SUCCESS_COUNT,
-  MIN_PROGRESSION_LENTH,
-  MIN_STEP,
 };
