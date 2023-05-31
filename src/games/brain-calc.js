@@ -1,11 +1,10 @@
-import readlineSync from 'readline-sync';
 import getRandomChar from '../modules/get_random_char.js';
 import calculateExpression from '../modules/calculateExpression.js';
 import {
   getRandomNumber,
-  getWrongAnswer,
   userName,
   congratulations,
+  processQuestion,
   SUCCESS_COUNT,
 } from '../index.js';
 
@@ -28,15 +27,9 @@ const playBrainCalc = () => {
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const [expression, result] = generateExpression();
+    const isCorrect = processQuestion(expression, result);
 
-    console.log(`Question: ${expression}`);
-    const yourAnswer = readlineSync.question('Your answer: ');
-    const answer = parseInt(yourAnswer, 10);
-
-    if (answer === result) {
-      console.log('Correct!');
-    } else {
-      getWrongAnswer(yourAnswer, `'${result}`);
+    if (!isCorrect) {
       break;
     }
 

@@ -1,7 +1,6 @@
-import readlineSync from 'readline-sync';
 import {
   getRandomNumber,
-  getWrongAnswer,
+  processQuestion,
   userName,
   congratulations,
   SUCCESS_COUNT,
@@ -30,14 +29,9 @@ const playBrainProgression = () => {
   console.log('What number is missing in the progression?');
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const [arrayNum, missingNumber] = getArrayNum();
-    console.log(`Question: ${arrayNum}`);
-    const yourAnswer = readlineSync.question('Your answer: ');
-    const answer = parseInt(yourAnswer, 10);
+    const isCorrect = processQuestion(arrayNum, missingNumber);
 
-    if (answer === missingNumber) {
-      console.log('Correct!');
-    } else {
-      getWrongAnswer(yourAnswer, `'${missingNumber}'`);
+    if (!isCorrect) {
       break;
     }
 
