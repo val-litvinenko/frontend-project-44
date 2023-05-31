@@ -14,9 +14,10 @@ const playBrainEven = () => {
     const randomNum = getRandomNumber(100);
     console.log(`Question: ${randomNum}`);
     const yourAnswer = readlineSync.question('Your answer: ');
-
     const isEven = randomNum % 2 === 0;
-    if ((isEven && yourAnswer === 'yes') || (!isEven && yourAnswer === 'no')) {
+    const isCorrectAnswer = (isEven && yourAnswer === 'yes') || (!isEven && yourAnswer === 'no');
+
+    if (isCorrectAnswer) {
       console.log('Correct!');
     } else {
       getWrongAnswer(yourAnswer, `'${isEven ? 'no' : 'yes'}'`);
