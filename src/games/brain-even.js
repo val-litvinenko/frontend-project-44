@@ -10,7 +10,7 @@ const playBrainEven = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
-    const randomNum = getRandomNumber();
+    const randomNum = getRandomNumber(100);
     console.log(`Question: ${randomNum}`);
     const yourAnswer = readlineSync.question('Your answer: ');
 

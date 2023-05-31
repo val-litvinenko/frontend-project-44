@@ -25,8 +25,8 @@ const playBrainCalc = () => {
   console.log('What is the result of the expression?');
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
-    const randomNumFirst = getRandomNumber();
-    const randomNumSecond = getRandomNumber();
+    const randomNumFirst = getRandomNumber(100);
+    const randomNumSecond = getRandomNumber(100);
     const randomChar = getRandomChar(charArray);
     const expressionResult = calculateExpression(randomNumFirst, randomNumSecond, randomChar);
 

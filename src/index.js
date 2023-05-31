@@ -3,6 +3,8 @@ import getRandomNumber from './modules/get_random_number.js';
 import getRandomChar from './modules/get_random_char.js';
 
 const SUCCESS_COUNT = 3;
+const MIN_PROGRESSION_LENTH = 5;
+const MIN_STEP = 1;
 
 const userName = greetingPlayer();
 
@@ -19,5 +21,7 @@ export {
   getWrongAnswer,
   getRandomChar,
   SUCCESS_COUNT,
+  MIN_PROGRESSION_LENTH,
+  MIN_STEP,
   charArray,
 };
