@@ -1,5 +1,6 @@
 import readlineSync from 'readline-sync';
 import getRandomChar from '../modules/get_random_char.js';
+import calculateExpression from '../modules/calculateExpression.js';
 import {
   getRandomNumber,
   getWrongAnswer,
@@ -9,19 +10,6 @@ import {
 } from '../index.js';
 
 const charArray = ['+', '-', '*'];
-
-const calculateExpression = (a, b, operation) => {
-  switch (operation) {
-    case '+':
-      return a + b;
-    case '-':
-      return a - b;
-    case '*':
-      return a * b;
-    default:
-      return calculateExpression;
-  }
-};
 
 const generateExpression = () => {
   const randomNumFirst = getRandomNumber(100);
