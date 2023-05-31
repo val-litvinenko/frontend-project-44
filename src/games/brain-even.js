@@ -3,6 +3,7 @@ import {
   userName,
   getRandomNumber,
   getWrongAnswer,
+  congratulations,
   SUCCESS_COUNT,
 } from '../index.js';
 
@@ -16,13 +17,13 @@ const playBrainEven = () => {
 
     if ((randomNum % 2 === 0 && yourAnswer === 'yes') || (randomNum % 2 !== 0 && yourAnswer === 'no')) {
       console.log('Correct!');
-      if (i === SUCCESS_COUNT) {
-        console.log(`Congratulations, ${userName}!`);
-      }
     } else {
       getWrongAnswer(yourAnswer, `'${yourAnswer === 'yes' ? 'no' : 'yes'}'`);
-
       break;
+    }
+
+    if (i === SUCCESS_COUNT) {
+      congratulations(userName);
     }
   }
 };

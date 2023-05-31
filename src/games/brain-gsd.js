@@ -3,6 +3,7 @@ import {
   getRandomNumber,
   getWrongAnswer,
   userName,
+  congratulations,
   SUCCESS_COUNT,
 } from '../index.js';
 
@@ -30,13 +31,13 @@ const playBrainGsd = () => {
 
     if (answer === gsd) {
       console.log('Correct!');
-      if (i === SUCCESS_COUNT) {
-        console.log(`Congratulations, ${userName}!`);
-      }
     } else {
       getWrongAnswer(yourAnswer, `'${gsd}'`);
-
       break;
+    }
+
+    if (i === SUCCESS_COUNT) {
+      congratulations(userName);
     }
   }
 };

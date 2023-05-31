@@ -4,6 +4,7 @@ import {
   getRandomNumber,
   getWrongAnswer,
   userName,
+  congratulations,
   SUCCESS_COUNT,
 } from '../index.js';
 
@@ -47,12 +48,12 @@ const playBrainCalc = () => {
     if (answer === result) {
       console.log('Correct!');
     } else {
-      getWrongAnswer(yourAnswer, result);
+      getWrongAnswer(yourAnswer, `'${result}`);
       break;
     }
 
     if (i === SUCCESS_COUNT) {
-      console.log(`Congratulations, ${userName}!`);
+      congratulations(userName);
     }
   }
 };

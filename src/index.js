@@ -10,9 +10,13 @@ const getWrongAnswer = (answer, condition) => {
   console.log(`Let's try again, ${userName}!`);
 };
 
+const congratulations = (name) => {
+  console.log(`Congratulations, ${name}!`);
+};
 export {
   userName,
   getRandomNumber,
   getWrongAnswer,
+  congratulations,
   SUCCESS_COUNT,
 };

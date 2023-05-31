@@ -3,26 +3,33 @@ import {
   getRandomNumber,
   getWrongAnswer,
   userName,
+  congratulations,
   SUCCESS_COUNT,
 } from '../index.js';
 
 const MIN_PROGRESSION_LENTH = 5;
 const MIN_STEP = 1;
 
+const getArrayNum = () => {
+  const arrayNum = [];
+  const startArray = getRandomNumber(50);
+  const step = getRandomNumber(5) + MIN_STEP;
+  const arrayLenth = getRandomNumber(4) + MIN_PROGRESSION_LENTH;
+  const randomIndex = getRandomNumber(arrayLenth - 1);
+  arrayNum.push(startArray);
+  for (let j = 0; j < arrayLenth; j += 1) {
+    arrayNum.push(arrayNum[j] + step);
+  }
+  const missingNumber = arrayNum[randomIndex];
+  arrayNum[randomIndex] = '..';
+
+  return [arrayNum, missingNumber];
+};
+
 const playBrainProgression = () => {
   console.log('What number is missing in the progression?');
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
-    const arrayNum = [];
-    const startArray = getRandomNumber(50);
-    const step = getRandomNumber(5) + MIN_STEP;
-    const arrayLenth = getRandomNumber(4) + MIN_PROGRESSION_LENTH;
-    const randomIndex = getRandomNumber(arrayLenth - 1);
-    arrayNum.push(startArray);
-    for (let j = 0; j < arrayLenth; j += 1) {
-      arrayNum.push(arrayNum[j] + step);
-    }
-    const missingNumber = arrayNum[randomIndex];
-    arrayNum[randomIndex] = '..';
+    const [arrayNum, missingNumber] = getArrayNum();
     console.log(`Question: ${arrayNum}`);
     const yourAnswer = readlineSync.question('Your answer: ');
     const answer = parseInt(yourAnswer, 10);
@@ -35,7 +42,7 @@ const playBrainProgression = () => {
     }
 
     if (i === SUCCESS_COUNT) {
-      console.log(`Congratulations, ${userName}!`);
+      congratulations(userName);
     }
   }
 };
