@@ -10,8 +10,8 @@ brain-even
 brain-calc
 <a href='https://asciinema.org/a/588246'>
 
-brain-gsd
-<a href='https://asciinema.org/a/588396'>
+brain-gcd
+<a href='https://asciinema.org/a/590657'>
 
 brain-progression
 <a href='https://asciinema.org/a/588594'>

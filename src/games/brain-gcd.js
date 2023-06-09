@@ -6,7 +6,7 @@ import {
   SUCCESS_COUNT,
 } from '../index.js';
 
-const getGsd = () => {
+const getGcd = () => {
   const randomNumFirst = getRandomNumber(100);
   const randomNumSecond = getRandomNumber(100);
   let bigNum = Math.max(randomNumFirst, randomNumSecond);
@@ -19,15 +19,15 @@ const getGsd = () => {
     remainder = bigNum % minNum;
   }
 
-  const gsd = minNum;
+  const gcd = minNum;
 
-  return [randomNumFirst, randomNumSecond, gsd];
+  return [randomNumFirst, randomNumSecond, gcd];
 };
-const playBrainGsd = () => {
+const playBrainGcd = () => {
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
-    const [randomNumFirst, randomNumSecond, gsd] = getGsd();
-    const isCorrect = processQuestion(`${randomNumFirst} ${randomNumSecond}`, gsd);
+    const [randomNumFirst, randomNumSecond, gcd] = getGcd();
+    const isCorrect = processQuestion(`${randomNumFirst} ${randomNumSecond}`, gcd);
 
     if (!isCorrect) {
       break;
@@ -39,4 +39,4 @@ const playBrainGsd = () => {
   }
 };
 
-export default playBrainGsd;
+export default playBrainGcd;
