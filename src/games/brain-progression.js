@@ -22,7 +22,7 @@ const getArrayNum = () => {
   const missingNumber = arrayNum[randomIndex];
   arrayNum[randomIndex] = '..';
 
-  return [arrayNum, missingNumber];
+  return [arrayNum.join(' '), missingNumber];
 };
 
 const playBrainProgression = () => {
