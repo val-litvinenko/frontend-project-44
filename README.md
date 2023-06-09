@@ -15,3 +15,6 @@ brain-gsd
 
 brain-progression
 <a href='https://asciinema.org/a/588594'>
+
+brain-prime
+<a href='https://asciinema.org/a/t5VXZpiYG2zoX0f41jtpF8RtN'>
