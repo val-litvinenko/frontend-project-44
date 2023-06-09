@@ -11,10 +11,6 @@ const getWrongAnswer = (answer, condition) => {
   console.log(`Let's try again, ${userName}!`);
 };
 
-const congratulations = (name) => {
-  console.log(`Congratulations, ${name}!`);
-};
-
 const processQuestion = (question, correctAnswer) => {
   console.log(`Question: ${question}`);
   const yourAnswer = readlineSync.question('Your answer: ');
@@ -27,6 +23,10 @@ const processQuestion = (question, correctAnswer) => {
   getWrongAnswer(yourAnswer, `'${correctAnswer}'`);
 
   return false;
+};
+
+const congratulations = (name) => {
+  console.log(`Congratulations, ${name}!`);
 };
 
 export {
