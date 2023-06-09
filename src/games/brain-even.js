@@ -13,13 +13,14 @@ const playBrainEven = () => {
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const randomNum = getRandomNumber(100);
     console.log(`Question: ${randomNum}`);
-    const yourAnswer = readlineSync.question('Your answer: ') === 'yes';
+    const yourAnswer = readlineSync.question('Your answer: ');
     const isEven = randomNum % 2 === 0;
+    const isCorrectAnswer = (isEven && yourAnswer === 'yes') || (!isEven && yourAnswer === 'no');
 
-    if (yourAnswer === isEven) {
+    if (isCorrectAnswer) {
       console.log('Correct!');
     } else {
-      getWrongAnswer(`${yourAnswer ? 'yes' : 'no'}`, `'${yourAnswer ? 'no' : 'yes'}'`);
+      getWrongAnswer(yourAnswer, `'${yourAnswer === 'yes' ? 'no' : 'yes'}'`);
       break;
     }
 
