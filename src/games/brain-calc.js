@@ -5,6 +5,8 @@ import {
   userName,
   congratulations,
   processQuestion,
+  isCorrectAnswer,
+  getWrongAnswer,
   SUCCESS_COUNT,
 } from '../index.js';
 
@@ -27,9 +29,11 @@ const playBrainCalc = () => {
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const [expression, result] = generateExpression();
-    const isCorrect = processQuestion(expression, result);
+    const yourAnswer = processQuestion(expression);
+    const isCorrect = isCorrectAnswer(parseInt(yourAnswer, 10), result);
 
     if (!isCorrect) {
+      getWrongAnswer(yourAnswer, result);
       break;
     }
 

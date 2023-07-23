@@ -1,7 +1,8 @@
-import readlineSync from 'readline-sync';
 import {
   getRandomNumber,
   getWrongAnswer,
+  processQuestion,
+  isCorrectAnswer,
   congratulations,
   SUCCESS_COUNT,
   userName,
@@ -22,14 +23,13 @@ const playBrainPrime = () => {
   console.log('Answer "yes" if given number is prime. Otherwise answer "no"');
   for (let j = 1; j <= SUCCESS_COUNT; j += 1) {
     const randomNum = getRandomNumber(100);
-    console.log(`Question: ${randomNum}`);
-    const yourAnswer = readlineSync.question('Your answer: ');
-    const isCorrectAnswer = (yourAnswer === 'yes' && checkIsPrime(randomNum) === 'yes') || (yourAnswer === 'no' && checkIsPrime(randomNum) === 'no');
+    const isPrime = checkIsPrime(randomNum);
 
-    if (isCorrectAnswer) {
-      console.log('Correct!');
-    } else {
-      getWrongAnswer(yourAnswer, `'${yourAnswer === 'yes' ? 'no' : 'yes'}'`);
+    const yourAnswer = processQuestion(randomNum);
+    const isCorrect = isCorrectAnswer(yourAnswer, isPrime);
+
+    if (!isCorrect) {
+      getWrongAnswer(yourAnswer, isPrime);
       break;
     }
 

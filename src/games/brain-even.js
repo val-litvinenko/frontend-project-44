@@ -1,8 +1,9 @@
-import readlineSync from 'readline-sync';
 import {
   userName,
   getRandomNumber,
   getWrongAnswer,
+  processQuestion,
+  isCorrectAnswer,
   congratulations,
   SUCCESS_COUNT,
 } from '../index.js';
@@ -12,15 +13,13 @@ const playBrainEven = () => {
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const randomNum = getRandomNumber(100);
-    console.log(`Question: ${randomNum}`);
-    const yourAnswer = readlineSync.question('Your answer: ');
-    const isEven = randomNum % 2 === 0;
-    const isCorrectAnswer = (isEven && yourAnswer === 'yes') || (!isEven && yourAnswer === 'no');
+    const isEven = randomNum % 2 === 0 ? 'yes' : 'no';
 
-    if (isCorrectAnswer) {
-      console.log('Correct!');
-    } else {
-      getWrongAnswer(yourAnswer, `'${yourAnswer === 'yes' ? 'no' : 'yes'}'`);
+    const yourAnswer = processQuestion(randomNum);
+    const isCorrect = isCorrectAnswer(yourAnswer, isEven);
+
+    if (!isCorrect) {
+      getWrongAnswer(yourAnswer, isEven);
       break;
     }
 

@@ -11,17 +11,17 @@ const getWrongAnswer = (answer, condition) => {
   console.log(`Let's try again, ${userName}!`);
 };
 
-const processQuestion = (question, correctAnswer) => {
+const processQuestion = (question) => {
   console.log(`Question: ${question}`);
   const yourAnswer = readlineSync.question('Your answer: ');
-  const answer = parseInt(yourAnswer, 10);
+  return yourAnswer;
+};
 
-  if (answer === correctAnswer) {
+const isCorrectAnswer = (yourAnswer, correctAnswer) => {
+  if (yourAnswer === correctAnswer) {
     console.log('Correct!');
     return true;
   }
-  getWrongAnswer(yourAnswer, `'${correctAnswer}'`);
-
   return false;
 };
 
@@ -34,6 +34,7 @@ export {
   getRandomNumber,
   getWrongAnswer,
   processQuestion,
+  isCorrectAnswer,
   congratulations,
   SUCCESS_COUNT,
 };

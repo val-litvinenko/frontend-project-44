@@ -1,6 +1,8 @@
 import {
   getRandomNumber,
   processQuestion,
+  isCorrectAnswer,
+  getWrongAnswer,
   userName,
   congratulations,
   SUCCESS_COUNT,
@@ -30,9 +32,11 @@ const playBrainProgression = () => {
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const [arrayNum, missingNumber] = getArrayNum();
-    const isCorrect = processQuestion(arrayNum, missingNumber);
+    const yourAnswer = processQuestion(arrayNum, missingNumber);
+    const isCorrect = isCorrectAnswer(parseInt(yourAnswer, 10), missingNumber);
 
     if (!isCorrect) {
+      getWrongAnswer(yourAnswer, missingNumber);
       break;
     }
 
