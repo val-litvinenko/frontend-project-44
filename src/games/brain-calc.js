@@ -2,7 +2,7 @@ import getRandomChar from '../modules/get_random_char.js';
 import calculateExpression from '../modules/calculateExpression.js';
 import {
   getRandomNumber,
-  userName,
+  greetingPlayer,
   congratulations,
   processQuestion,
   isCorrectAnswer,
@@ -25,6 +25,7 @@ const generateExpression = () => {
 };
 
 const playBrainCalc = () => {
+  const userName = greetingPlayer();
   console.log('What is the result of the expression?');
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
@@ -33,7 +34,7 @@ const playBrainCalc = () => {
     const isCorrect = isCorrectAnswer(parseInt(yourAnswer, 10), result);
 
     if (!isCorrect) {
-      getWrongAnswer(yourAnswer, result);
+      getWrongAnswer(yourAnswer, result, userName);
       break;
     }
 

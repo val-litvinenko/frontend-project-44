@@ -1,6 +1,6 @@
 import {
   getRandomNumber,
-  userName,
+  greetingPlayer,
   processQuestion,
   isCorrectAnswer,
   getWrongAnswer,
@@ -26,6 +26,7 @@ const getGcd = () => {
   return [randomNumFirst, randomNumSecond, gcd];
 };
 const playBrainGcd = () => {
+  const userName = greetingPlayer();
   console.log('Find the greatest common divisor of given numbers.');
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const [randomNumFirst, randomNumSecond, gcd] = getGcd();
@@ -33,7 +34,7 @@ const playBrainGcd = () => {
     const isCorrect = isCorrectAnswer(parseInt(yourAnswer, 10), gcd);
 
     if (!isCorrect) {
-      getWrongAnswer(yourAnswer, gcd);
+      getWrongAnswer(yourAnswer, gcd, userName);
       break;
     }
 

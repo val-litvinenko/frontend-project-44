@@ -1,5 +1,5 @@
 import {
-  userName,
+  greetingPlayer,
   getRandomNumber,
   getWrongAnswer,
   processQuestion,
@@ -9,6 +9,7 @@ import {
 } from '../index.js';
 
 const playBrainEven = () => {
+  const userName = greetingPlayer();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
@@ -19,7 +20,7 @@ const playBrainEven = () => {
     const isCorrect = isCorrectAnswer(yourAnswer, isEven);
 
     if (!isCorrect) {
-      getWrongAnswer(yourAnswer, isEven);
+      getWrongAnswer(yourAnswer, isEven, userName);
       break;
     }
 

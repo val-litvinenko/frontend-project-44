@@ -5,7 +5,7 @@ import {
   isCorrectAnswer,
   congratulations,
   SUCCESS_COUNT,
-  userName,
+  greetingPlayer,
 } from '../index.js';
 
 const checkIsPrime = (num) => {
@@ -20,6 +20,7 @@ const checkIsPrime = (num) => {
 };
 
 const playBrainPrime = () => {
+  const userName = greetingPlayer();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no"');
   for (let j = 1; j <= SUCCESS_COUNT; j += 1) {
     const randomNum = getRandomNumber(100);
@@ -29,7 +30,7 @@ const playBrainPrime = () => {
     const isCorrect = isCorrectAnswer(yourAnswer, isPrime);
 
     if (!isCorrect) {
-      getWrongAnswer(yourAnswer, isPrime);
+      getWrongAnswer(yourAnswer, isPrime, userName);
       break;
     }
 

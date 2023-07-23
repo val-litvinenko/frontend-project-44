@@ -4,11 +4,9 @@ import getRandomNumber from './modules/get_random_number.js';
 
 const SUCCESS_COUNT = 3;
 
-const userName = greetingPlayer();
-
-const getWrongAnswer = (answer, condition) => {
-  console.log(`'${answer}' is wrong answer ;(. Correct answer was ${condition}`);
-  console.log(`Let's try again, ${userName}!`);
+const getWrongAnswer = (answer, condition, name) => {
+  console.log(`'${answer}' is wrong answer ;(. Correct answer was '${condition}'`);
+  console.log(`Let's try again, ${name}!`);
 };
 
 const processQuestion = (question) => {
@@ -30,7 +28,7 @@ const congratulations = (name) => {
 };
 
 export {
-  userName,
+  greetingPlayer,
   getRandomNumber,
   getWrongAnswer,
   processQuestion,

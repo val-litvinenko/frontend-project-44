@@ -3,7 +3,7 @@ import {
   processQuestion,
   isCorrectAnswer,
   getWrongAnswer,
-  userName,
+  greetingPlayer,
   congratulations,
   SUCCESS_COUNT,
 } from '../index.js';
@@ -28,6 +28,7 @@ const getArrayNum = () => {
 };
 
 const playBrainProgression = () => {
+  const userName = greetingPlayer();
   console.log('What number is missing in the progression?');
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
@@ -36,7 +37,7 @@ const playBrainProgression = () => {
     const isCorrect = isCorrectAnswer(parseInt(yourAnswer, 10), missingNumber);
 
     if (!isCorrect) {
-      getWrongAnswer(yourAnswer, missingNumber);
+      getWrongAnswer(yourAnswer, missingNumber, userName);
       break;
     }
 
