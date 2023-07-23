@@ -27,6 +27,27 @@ const congratulations = (name) => {
   console.log(`Congratulations, ${name}!`);
 };
 
+const playGame = (question, check) => {
+  const userName = greetingPlayer();
+  console.log(question);
+
+  for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
+    const randomNum = getRandomNumber(100);
+    const isCondition = check(randomNum);
+
+    const yourAnswer = processQuestion(randomNum);
+    const isCorrect = isCorrectAnswer(yourAnswer, isCondition);
+
+    if (!isCorrect) {
+      getWrongAnswer(yourAnswer, isCondition, userName);
+      break;
+    }
+
+    if (i === SUCCESS_COUNT) {
+      congratulations(userName);
+    }
+  }
+};
 export {
   greetingPlayer,
   getRandomNumber,
@@ -35,4 +56,5 @@ export {
   isCorrectAnswer,
   congratulations,
   SUCCESS_COUNT,
+  playGame,
 };

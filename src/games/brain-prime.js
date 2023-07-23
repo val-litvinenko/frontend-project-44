@@ -1,12 +1,4 @@
-import {
-  getRandomNumber,
-  getWrongAnswer,
-  processQuestion,
-  isCorrectAnswer,
-  congratulations,
-  SUCCESS_COUNT,
-  greetingPlayer,
-} from '../index.js';
+import { playGame } from '../index.js';
 
 const checkIsPrime = (num) => {
   let i = 2;
@@ -19,25 +11,9 @@ const checkIsPrime = (num) => {
   return 'yes';
 };
 
+const questionOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 const playBrainPrime = () => {
-  const userName = greetingPlayer();
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no"');
-  for (let j = 1; j <= SUCCESS_COUNT; j += 1) {
-    const randomNum = getRandomNumber(100);
-    const isPrime = checkIsPrime(randomNum);
-
-    const yourAnswer = processQuestion(randomNum);
-    const isCorrect = isCorrectAnswer(yourAnswer, isPrime);
-
-    if (!isCorrect) {
-      getWrongAnswer(yourAnswer, isPrime, userName);
-      break;
-    }
-
-    if (j === SUCCESS_COUNT) {
-      congratulations(userName);
-    }
-  }
+  playGame(questionOfGame, checkIsPrime);
 };
 
 export default playBrainPrime;
