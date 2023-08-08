@@ -1,10 +1,10 @@
-import { playGame } from '../index.js';
+import { playStatementGame } from '../index.js';
 
 const checkIsEven = (randomNum) => (randomNum % 2 === 0 ? 'yes' : 'no');
 
 const questionOfGame = 'Answer "yes" if the number is even, otherwise answer "no".';
 const playBrainEven = () => {
-  playGame(questionOfGame, checkIsEven);
+  playStatementGame(questionOfGame, checkIsEven);
 };
 
 export default playBrainEven;
