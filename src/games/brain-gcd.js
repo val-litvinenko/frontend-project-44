@@ -1,11 +1,12 @@
 import {
   getRandomNumber,
   playNumGame,
+  MAX_RANDOM_NUM,
 } from '../index.js';
 
 const getGcd = () => {
-  const randomNumFirst = getRandomNumber(100);
-  const randomNumSecond = getRandomNumber(100);
+  const randomNumFirst = getRandomNumber(MAX_RANDOM_NUM);
+  const randomNumSecond = getRandomNumber(MAX_RANDOM_NUM);
   let bigNum = Math.max(randomNumFirst, randomNumSecond);
   let minNum = Math.min(randomNumFirst, randomNumSecond);
   let remainder = bigNum % minNum;

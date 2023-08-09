@@ -5,12 +5,16 @@ import {
 
 const MIN_PROGRESSION_LENTH = 5;
 const MIN_STEP = 1;
+const MAX_START_RANDOM_NUM = 50;
+
+const choiseMinStep = getRandomNumber(5);
+const choiseProgressionLength = getRandomNumber(4);
 
 const getArrayNum = () => {
   const arrayNum = [];
-  const startArray = getRandomNumber(50);
-  const step = getRandomNumber(5) + MIN_STEP;
-  const arrayLenth = getRandomNumber(4) + MIN_PROGRESSION_LENTH;
+  const startArray = getRandomNumber(MAX_START_RANDOM_NUM);
+  const step = choiseMinStep + MIN_STEP;
+  const arrayLenth = choiseProgressionLength + MIN_PROGRESSION_LENTH;
   const randomIndex = getRandomNumber(arrayLenth - 1);
   arrayNum.push(startArray);
   for (let j = 0; j < arrayLenth; j += 1) {
