@@ -1,17 +1,28 @@
-import getRandomChar from '../modules/get_random_char.js';
-import calculateExpression from '../modules/calculateExpression.js';
+import getRandomNumber from '../modules/get_random_number.js';
 import {
-  getRandomNumber,
   MAX_RANDOM_NUM,
   playNumGame,
 } from '../index.js';
 
 const charArray = ['+', '-', '*'];
 
+const calculateExpression = (a, b, operation) => {
+  switch (operation) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    default:
+      throw new Error('Неизвестный оператор');
+  }
+};
+
 const generateExpression = () => {
   const randomNumFirst = getRandomNumber(MAX_RANDOM_NUM);
   const randomNumSecond = getRandomNumber(MAX_RANDOM_NUM);
-  const randomChar = getRandomChar(charArray);
+  const randomChar = charArray[getRandomNumber(charArray.length)];
   const result = calculateExpression(randomNumFirst, randomNumSecond, randomChar);
 
   const expression = `${randomNumFirst} ${randomChar} ${randomNumSecond}`;

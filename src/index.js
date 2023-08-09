@@ -24,20 +24,16 @@ const isCorrectAnswer = (yourAnswer, correctAnswer) => {
   return false;
 };
 
-const congratulations = (name) => {
-  console.log(`Congratulations, ${name}!`);
-};
-
 const playStatementGame = (question, check) => {
   const userName = greetingPlayer();
   console.log(question);
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
-    const randomNum = getRandomNumber(100);
+    const randomNum = getRandomNumber(MAX_RANDOM_NUM);
     const isCondition = check(randomNum);
 
     const yourAnswer = processQuestion(randomNum);
-    const isCorrect = isCorrectAnswer(yourAnswer, isCondition);
+    const isCorrect = isCorrectAnswer(yourAnswer, isCondition) ? 'yes' : 'no';
 
     if (!isCorrect) {
       getWrongAnswer(yourAnswer, isCondition, userName);
@@ -45,7 +41,7 @@ const playStatementGame = (question, check) => {
     }
 
     if (i === SUCCESS_COUNT) {
-      congratulations(userName);
+      console.log(`Congratulations, ${userName}!`);
     }
   }
 };
@@ -65,19 +61,12 @@ const playNumGame = (question, generateCorrectAnswer) => {
     }
 
     if (i === SUCCESS_COUNT) {
-      congratulations(userName);
+      console.log(`Congratulations, ${userName}!`);
     }
   }
 };
 
 export {
-  greetingPlayer,
-  getRandomNumber,
-  getWrongAnswer,
-  processQuestion,
-  isCorrectAnswer,
-  congratulations,
-  SUCCESS_COUNT,
   MAX_RANDOM_NUM,
   playStatementGame,
   playNumGame,
