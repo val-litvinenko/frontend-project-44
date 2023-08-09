@@ -1,7 +1,6 @@
 import readlineSync from 'readline-sync';
 import greetingPlayer from './modules/greeting_player.js';
-import getRandomNumber from './modules/get_random_number.js';
-import { SUCCESS_COUNT, MAX_RANDOM_NUM } from './constants.js';
+import { SUCCESS_COUNT } from './constants.js';
 
 const getWrongAnswer = (answer, condition, name) => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${condition}'`);
@@ -22,36 +21,14 @@ const isCorrectAnswer = (yourAnswer, correctAnswer) => {
   return false;
 };
 
-const playStatementGame = (question, check) => {
-  const userName = greetingPlayer();
-  console.log(question);
-
-  for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
-    const randomNum = getRandomNumber(MAX_RANDOM_NUM);
-    const isCondition = check(randomNum);
-
-    const yourAnswer = processQuestion(randomNum);
-    const isCorrect = isCorrectAnswer(yourAnswer, isCondition) ? 'yes' : 'no';
-
-    if (!isCorrect) {
-      getWrongAnswer(yourAnswer, isCondition, userName);
-      break;
-    }
-
-    if (i === SUCCESS_COUNT) {
-      console.log(`Congratulations, ${userName}!`);
-    }
-  }
-};
-
-const playNumGame = (question, generateCorrectAnswer) => {
+const playGame = (question, generateCorrectAnswer) => {
   const userName = greetingPlayer();
   console.log(question);
 
   for (let i = 1; i <= SUCCESS_COUNT; i += 1) {
     const [questionData, correctAnswer] = generateCorrectAnswer();
     const yourAnswer = processQuestion(questionData);
-    const isCorrect = isCorrectAnswer(parseInt(yourAnswer, 10), correctAnswer);
+    const isCorrect = isCorrectAnswer(yourAnswer, correctAnswer);
 
     if (!isCorrect) {
       getWrongAnswer(yourAnswer, correctAnswer, userName);
@@ -64,7 +41,4 @@ const playNumGame = (question, generateCorrectAnswer) => {
   }
 };
 
-export {
-  playStatementGame,
-  playNumGame,
-};
+export default playGame;

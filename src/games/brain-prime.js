@@ -1,4 +1,6 @@
-import { playStatementGame } from '../index.js';
+import playGame from '../index.js';
+import getRandomNumber from '../modules/get_random_number.js';
+import { MAX_RANDOM_NUM } from '../constants.js';
 
 const checkIsPrime = (num) => {
   let i = 2;
@@ -11,9 +13,14 @@ const checkIsPrime = (num) => {
   return true;
 };
 
+const generatePrimeData = () => {
+  const randomNum = getRandomNumber(MAX_RANDOM_NUM);
+  return [randomNum, checkIsPrime(randomNum) ? 'yes' : 'no'];
+};
+
 const questionOfGame = 'Answer "yes" if given number is prime. Otherwise answer "no"';
 const playBrainPrime = () => {
-  playStatementGame(questionOfGame, checkIsPrime);
+  playGame(questionOfGame, generatePrimeData);
 };
 
 export default playBrainPrime;

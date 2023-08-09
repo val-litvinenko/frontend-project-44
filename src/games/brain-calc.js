@@ -1,7 +1,5 @@
 import getRandomNumber from '../modules/get_random_number.js';
-import {
-  playNumGame,
-} from '../index.js';
+import playGame from '../index.js';
 import { MAX_RANDOM_NUM } from '../constants.js';
 
 const charArray = ['+', '-', '*'];
@@ -27,12 +25,12 @@ const generateExpression = () => {
 
   const expression = `${randomNumFirst} ${randomChar} ${randomNumSecond}`;
 
-  return [expression, result];
+  return [expression, `${result}`];
 };
 
 const questionOfGame = 'What is the result of the expression?';
 const playBrainCalc = () => {
-  playNumGame(questionOfGame, generateExpression);
+  playGame(questionOfGame, generateExpression);
 };
 
 export default playBrainCalc;

@@ -20,7 +20,7 @@ const getArrayNum = () => {
   const missingNumber = arrayNum[randomIndex];
   arrayNum[randomIndex] = '..';
 
-  return [arrayNum.join(' '), missingNumber];
+  return [arrayNum.join(' '), `${missingNumber}`];
 };
 
 export default getArrayNum;

@@ -1,9 +1,9 @@
 import getGcd from '../modules/get_gsd.js';
-import { playNumGame } from '../index.js';
+import playGame from '../index.js';
 
 const questionOfGame = 'Find the greatest common divisor of given numbers.';
 const playBrainGcd = () => {
-  playNumGame(questionOfGame, getGcd);
+  playGame(questionOfGame, getGcd);
 };
 
 export default playBrainGcd;

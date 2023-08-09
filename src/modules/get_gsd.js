@@ -16,7 +16,7 @@ const getGcd = () => {
 
   const gcd = minNum;
 
-  return [`${randomNumFirst} ${randomNumSecond}`, gcd];
+  return [`${randomNumFirst} ${randomNumSecond}`, `${gcd}`];
 };
 
 export default getGcd;
