@@ -1,5 +1,5 @@
 import getRandomNumber from './get_random_number.js';
-import MAX_RANDOM_NUM from '../index.js';
+import { MAX_RANDOM_NUM } from '../constants.js';
 
 const getGcd = () => {
   const randomNumFirst = getRandomNumber(MAX_RANDOM_NUM);

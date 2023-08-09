@@ -1,9 +1,7 @@
 import readlineSync from 'readline-sync';
 import greetingPlayer from './modules/greeting_player.js';
 import getRandomNumber from './modules/get_random_number.js';
-
-const SUCCESS_COUNT = 3;
-const MAX_RANDOM_NUM = 100;
+import { SUCCESS_COUNT, MAX_RANDOM_NUM } from './constants.js';
 
 const getWrongAnswer = (answer, condition, name) => {
   console.log(`'${answer}' is wrong answer ;(. Correct answer was '${condition}'`);
@@ -67,7 +65,6 @@ const playNumGame = (question, generateCorrectAnswer) => {
 };
 
 export {
-  MAX_RANDOM_NUM,
   playStatementGame,
   playNumGame,
 };

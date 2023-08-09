@@ -1,8 +1,8 @@
 import getRandomNumber from '../modules/get_random_number.js';
 import {
-  MAX_RANDOM_NUM,
   playNumGame,
 } from '../index.js';
+import { MAX_RANDOM_NUM } from '../constants.js';
 
 const charArray = ['+', '-', '*'];
 
@@ -22,7 +22,7 @@ const calculateExpression = (a, b, operation) => {
 const generateExpression = () => {
   const randomNumFirst = getRandomNumber(MAX_RANDOM_NUM);
   const randomNumSecond = getRandomNumber(MAX_RANDOM_NUM);
-  const randomChar = charArray[getRandomNumber(charArray.length)];
+  const randomChar = charArray[getRandomNumber(charArray.length - 1)];
   const result = calculateExpression(randomNumFirst, randomNumSecond, randomChar);
 
   const expression = `${randomNumFirst} ${randomChar} ${randomNumSecond}`;

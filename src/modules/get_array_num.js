@@ -1,20 +1,20 @@
 import getRandomNumber from './get_random_number.js';
+import {
+  MAX_STEP, MAX_PROGRESSION_LENGTH, MAX_START_RANDOM_NUM, MIN_STEP, MIN_PROGRESSION_LENGTH,
+} from '../constants.js';
 
-const MIN_PROGRESSION_LENTH = 5;
-const MIN_STEP = 1;
-const MAX_START_RANDOM_NUM = 50;
-
-const choiseMinStep = getRandomNumber(5);
-const choiseProgressionLength = getRandomNumber(4);
+const getRandomStep = getRandomNumber(MAX_STEP);
+const choiseProgressionLength = getRandomNumber(MAX_PROGRESSION_LENGTH);
 
 const getArrayNum = () => {
   const arrayNum = [];
   const startArray = getRandomNumber(MAX_START_RANDOM_NUM);
-  const step = choiseMinStep + MIN_STEP;
-  const arrayLenth = choiseProgressionLength + MIN_PROGRESSION_LENTH;
-  const randomIndex = getRandomNumber(arrayLenth - 1);
+  const step = getRandomStep + MIN_STEP;
+  const arrayLength = choiseProgressionLength > 5
+    ? choiseProgressionLength : choiseProgressionLength + MIN_PROGRESSION_LENGTH;
+  const randomIndex = getRandomNumber(arrayLength - 1);
   arrayNum.push(startArray);
-  for (let j = 0; j < arrayLenth; j += 1) {
+  for (let j = 0; j < arrayLength; j += 1) {
     arrayNum.push(arrayNum[j] + step);
   }
   const missingNumber = arrayNum[randomIndex];
