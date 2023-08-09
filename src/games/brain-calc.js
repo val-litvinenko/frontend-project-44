@@ -11,10 +11,9 @@ const generateExpression = () => {
   const randomNumFirst = getRandomNumber(100);
   const randomNumSecond = getRandomNumber(100);
   const randomChar = getRandomChar(charArray);
-  const expressionResult = calculateExpression(randomNumFirst, randomNumSecond, randomChar);
+  const result = calculateExpression(randomNumFirst, randomNumSecond, randomChar);
 
   const expression = `${randomNumFirst} ${randomChar} ${randomNumSecond}`;
-  const result = expressionResult;
 
   return [expression, result];
 };
