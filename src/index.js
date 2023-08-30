@@ -34,11 +34,9 @@ const playGame = (question, generateCorrectAnswer) => {
       getWrongAnswer(yourAnswer, correctAnswer, userName);
       return;
     }
-
-    if (i === SUCCESS_COUNT) {
-      console.log(`Congratulations, ${userName}!`);
-    }
   }
+
+  console.log(`Congratulations, ${userName}!`);
 };
 
 export default playGame;
