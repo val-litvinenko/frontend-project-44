@@ -32,7 +32,7 @@ const playGame = (question, generateCorrectAnswer) => {
 
     if (!isCorrect) {
       getWrongAnswer(yourAnswer, correctAnswer, userName);
-      break;
+      return;
     }
 
     if (i === SUCCESS_COUNT) {
